@@ -1,0 +1,129 @@
+{
+  "brand_identity": {
+    "name": "Ayojan Wale",
+    "theme": "Indian, Festive, Premium, Warm, Modern, Trustworthy",
+    "anti_patterns": [
+      "Dark corporate UI",
+      "Generic blue SaaS look",
+      "Too many standard cards",
+      "Dashboard-like homepage",
+      "Excessive gradients",
+      "Rainbow colours competing"
+    ]
+  },
+  "typography": {
+    "heading": {
+      "family": "'Cormorant Garamond', serif",
+      "weights": [400, 500, 600, 700],
+      "usage": "All major headings. Must use tight tracking (tracking-tighter) for large headings to look editorial."
+    },
+    "body": {
+      "family": "'Manrope', sans-serif",
+      "weights": [300, 400, 500, 600],
+      "usage": "Body copy, button labels, small UI elements. Clean, modern contrast to the serif."
+    },
+    "scale": {
+      "h1": "text-5xl md:text-7xl font-serif tracking-tighter leading-none text-royal-plum",
+      "h2": "text-4xl md:text-5xl font-serif tracking-tight leading-tight text-royal-plum",
+      "h3": "text-2xl md:text-3xl font-serif tracking-normal text-royal-plum",
+      "body": "text-base font-sans text-charcoal/80 leading-relaxed",
+      "overline": "text-xs md:text-sm font-sans uppercase tracking-[0.2em] font-medium text-marigold"
+    }
+  },
+  "colors": {
+    "base_palette": {
+      "royal_plum": "#4A1748",
+      "deep_wine": "#6B1F3A",
+      "marigold": "#F4A623",
+      "saffron": "#E87817",
+      "coral": "#E85D5D",
+      "warm_ivory": "#FFF9F1",
+      "soft_gold": "#D8A84E",
+      "charcoal": "#241E1C",
+      "leaf_green": "#4F7B5B"
+    },
+    "theming_strategy": {
+      "default_base": "Primary UI relies on Warm Ivory background, Royal Plum primary elements, and Marigold accents.",
+      "wedding": "Plum + Gold + Ivory",
+      "birthday": "Coral + Peach + Yellow",
+      "corporate": "Plum + Ivory + Blue-Grey (use slate-500)",
+      "religious": "Saffron + Marigold + Ivory",
+      "baby": "Coral/Peach + Leaf Green + Ivory"
+    }
+  },
+  "layout_and_spacing": {
+    "philosophy": "Generous Spacing (E1 rules). Never cram content. Use margins of 24, 32, 40 on tailwind scale.",
+    "grid": "Bento Grid Mode A (Asymmetrical). Overlap elements slightly to break structural rigidity. Use 12-column foundation.",
+    "photography": "Spotlight treatment. Avoid perfectly square images. Use 'arch' cuts via border-radius (e.g., rounded-t-[40%] or rounded-t-full on specific aspect ratios) to evoke traditional Indian architectural aesthetics but in a modern way."
+  },
+  "visual_enhancers": {
+    "shadows": "Ambient, warm shadows. Use shadow-[0_20px_40px_-15px_rgba(74,23,72,0.15)] for cards.",
+    "borders": "1px solid #D8A84E (Soft Gold) at 30% opacity to frame premium cards. Do not use generic gray borders.",
+    "textures": "Subtle noise overlay (mix-blend-overlay, low opacity) over Royal Plum sections to remove digital flatness."
+  },
+  "components": {
+    "button_primary": "rounded-full px-8 py-4 bg-royal-plum text-warm-ivory font-sans font-medium hover:bg-deep-wine transition-all duration-300 shadow-md",
+    "button_secondary": "rounded-full px-8 py-4 border border-soft-gold text-royal-plum font-sans font-medium hover:bg-soft-gold/10 transition-all",
+    "nav_bar": "Fixed top-0 w-full z-50 bg-warm-ivory/85 backdrop-blur-xl border-b border-soft-gold/20. STRICT RULE: No fully transparent headers.",
+    "cards_marketing": "Use raw HTML/Tailwind (no Shadcn Card). bg-white rounded-3xl p-8 border border-charcoal/5 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2"
+  },
+  "motion": {
+    "hero_reveal": "Kinetic masked text. Wrap each line of H1 in <div className='overflow-hidden'>. Animate <motion.div> from y: '100%' to y: '0' with cubic-bezier(0.16, 1, 0.3, 1) and staggered delay.",
+    "scroll_reveal": "Framer Motion whileInView. Fade up (y: 40, opacity: 0 -> y: 0, opacity: 1).",
+    "smooth_scroll": "Lenis library is MANDATORY for premium editorial feel.",
+    "parallax": "Use subtle y-axis translation on scroll for images within the Bento Grid."
+  },
+  "page_sections": {
+    "homepage": [
+      { "name": "Header/Nav", "style": "Glassmorphism on Warm Ivory, elegant logo typography, clear primary CTA." },
+      { "name": "Hero", "style": "Large kinetic H1 'Every Celebration Deserves to Feel Special'. Two-path layout with interactive cards for 'Find Vendors' and 'Plan My Event'. Incorporate soft parallax on images." },
+      { "name": "Editorial Marquee", "style": "react-fast-marquee. 'Find • Plan • Celebrate •' in italic serif, Soft Gold/Marigold text on Royal Plum background, running slowly." },
+      { "name": "Browse by Category", "style": "Large visual tiles with arched top borders. Rich photography, overlaid with gradient text protection." },
+      { "name": "What are you celebrating?", "style": "Horizontal scroll of occasions. Thematic color shifts on hover per occasion (e.g., hover switches border/text to the occasion accent color)." },
+      { "name": "How Find Vendors Works", "style": "3 steps. Numbered manifesto chapters with giant transparent serif numerals (text-9xl opacity-[0.05] text-charcoal) anchored behind the text." },
+      { "name": "Popular Vendors Near You", "style": "Premium cards showing vendor photo, name (serif), rating, price. Include a 'Location' selector at the top." },
+      { "name": "Plan My Event Journey", "style": "Full-width Royal Plum background section. 5-step numbered journey using Marigold accents for high contrast drama." },
+      { "name": "Your Event. Your Choice.", "style": "Split 50/50 section. Large spotlight-treated image on left, expressive typography and CTA on right." },
+      { "name": "Plan With Confidence", "style": "4 trust pillars. Minimalist icons wrapped in soft gold circular frames." },
+      { "name": "Ideas & Inspiration", "style": "Editorial blog cards. Focus on high-end photography and elegant serif post titles." },
+      { "name": "Final CTA & Footer", "style": "Massive typography for CTA on Royal Plum. Footer base in Charcoal or Deep Wine, high padding (py-24)." }
+    ],
+    "find_vendors_listing": "Clean, highly usable marketplace layout. Filters on left (collapsible on mobile), grid on right. High functional clarity, using Warm Ivory base and Plum accents, avoiding heavy emotional hero elements.",
+    "plan_my_event_wizard": "Step-by-step form flow. Use customized Shadcn form components. Clean centered layout with a progress bar utilizing the 'tracing beam' concept in Soft Gold. Warm Ivory background."
+  },
+  "media": {
+    "images": [
+      { "url": "https://images.unsplash.com/photo-1587271636175-90d58cdad458?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MjJ8MHwxfHNlYXJjaHwyfHxpbmRpYW4lMjB3ZWRkaW5nfGVufDB8fHx8MTc4NjgyNDExOHww&ixlib=rb-4.1.0&q=85", "category": "wedding", "description": "Mandap / Wedding Decor" },
+      { "url": "https://images.unsplash.com/photo-1541126274323-dbac58d14741?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NjZ8MHwxfHNlYXJjaHwyfHxwYXJ0eSUyMGRqfGVufDB8fHx8MTc4NjgyNDExOHww&ixlib=rb-4.1.0&q=85", "category": "dj", "description": "DJ Controller" },
+      { "url": "https://images.unsplash.com/photo-1555244162-803834f70033?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjh8MHwxfHNlYXJjaHwxfHxjYXRlcmVyJTIwZm9vZHxlbnwwfHx8fDE3ODY4MjQxMTh8MA&ixlib=rb-4.1.0&q=85", "category": "food", "description": "Caterer Food Platter" },
+      { "url": "https://images.unsplash.com/photo-1510076857177-7470076d4098?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzJ8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBldmVudCUyMHZlbnVlfGVufDB8fHx8MTc4NjgyNDExOHww&ixlib=rb-4.1.0&q=85", "category": "venue", "description": "Luxury Event Venue Dining Table" }
+    ],
+    "icons": "Use lucide-react (installed). Keep stroke width thin (1.25 or 1.5) for a premium feel."
+  },
+  "accessibility_and_testing": {
+    "contrast": "Ensure Royal Plum and Deep Wine text passes WCAG AA on Warm Ivory.",
+    "testing": "All interactive and key informational elements MUST include a `data-testid` attribute (kebab-case, role-based).",
+    "motion": "Respect prefers-reduced-motion CSS query for the Framer Motion reveals."
+  },
+  "instructions_to_main_agent": [
+    "Write components using .js or .jsx, NOT .tsx (TypeScript is not used).",
+    "Install Framer Motion (npm i framer-motion), React Fast Marquee (npm i react-fast-marquee), and Lenis (npm i @studio-freight/lenis).",
+    "Import 'Cormorant Garamond' and 'Manrope' fonts via Google Fonts in index.css.",
+    "Define the color palette as CSS variables in index.css (e.g. --royal-plum) and extend Tailwind theme to use them.",
+    "Do NOT use raw HTML `<select>` or native date pickers. Use Shadcn components for inputs in the 'Plan My Event' wizard.",
+    "Do NOT use standard Shadcn Card components for the marketing homepage sections; use custom divs with Tailwind to enable overlapping and asymmetry.",
+    "The Hero section must feature the masked line-by-line text reveal using Framer Motion.",
+    "Apply `data-testid` to buttons, links, and major section wrappers.",
+    "NEVER use generic placeholder images. Use the Unsplash URLs provided.",
+    "Use Lenis for smooth scroll wrap around the main layout.",
+    "Apply image architectural clipping via tailwind (e.g. rounded-t-full) to echo Indian archways."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Avoid the generic 'AI slop' aesthetic: no uniform boxes, simplistic gradients, or perfectly centered standard layouts.",
+    "Do not apply global `transition: all` to everything.",
+    "Do not add `.App { text-align: center; }`.",
+    "Create depth through overlapping z-indexes and soft ambient shadows.",
+    "Never use purely transparent backgrounds over headers where content scrolls underneath.",
+    "Micro-animations on buttons and cards are mandatory."
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Full-stack testing of Ayojan Wale. Backend: 11/11 pytest passed (categories, event-types, ideas, vendors + filters + search + 404, event create+persist, lead create). Frontend: All requested flows work with real clicks - no overlay/pointer interception issue found. Homepage hero cards navigate correctly, category tiles pre-filter /vendors, Radix Select filters (category/city) update vendor-count, search+clear-filters work, vendor profile loads with packages + enquiry form POSTs to /api/leads with success toast, Plan wizard step1->step2->step3->submit produces plan-success and success-explore-vendors navigates to /vendors?event=wedding. Wizard validation shows toast 'Please name your event and pick an occasion' and stays on step 1.",
+  "backend_issues": { "critical": [], "minor": [] },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Global", "issues": ["Console warning from Lenis: 'Please ensure that the container has a non-static position, like relative/fixed/absolute to ensure scroll offset is calculated correctly.' Non-blocking but should set position on scroll container."]},
+      {"screen": "Header", "issues": ["Sonner toast overlays right side of header nav (e.g., 'Inspiration' link partly hidden by toast). Consider moving toast position or increasing top offset."]}
+    ]
+  },
+  "test_report_links": ["/app/backend/tests/test_ayojan_api.py", "/app/test_reports/pytest/pytest_results.xml"],
+  "action_items": [
+    "(Optional) Fix Lenis console warning by making the scroll container position non-static.",
+    "(Optional) Reposition Sonner toaster so it does not overlap header nav links."
+  ],
+  "critical_code_review_comments": [
+    "server.py uses deprecated @app.on_event('startup'/'shutdown') - should migrate to FastAPI lifespan handlers.",
+    "CORSMiddleware is added AFTER app.include_router; still works because middleware applies globally, but conventional order is before include_router.",
+    "No index on db.vendors fields used in queries (category_slug, event_types, city, name regex). For seed-scale it's fine; add indexes if data grows.",
+    "POST /api/leads does not validate vendor_id exists (accepts any string). Consider 404 if vendor not found."
+  ],
+  "updated_files": ["/app/backend/tests/test_ayojan_api.py"],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "test_credentials": "N/A (no auth)",
+  "seed_data_creation": "Backend auto-seeds categories(11), event-types(8), vendors(14), ideas on startup. Test data created via API: TEST_Wedding event, TEST_User lead, TEST_Wedding_UI event.",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "No visual-edits overlay pointer interception detected via elementFromPoint(); real clicks navigate correctly. All data-testid attributes are in place. Backend pytest file at /app/backend/tests/test_ayojan_api.py can be reused. If retesting, note that Radix Select options render in a portal - use [role='option'] selector."
+}

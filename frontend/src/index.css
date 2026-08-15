@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Manrope:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --royal-plum: #4A1748;
+    --deep-wine: #6B1F3A;
+    --marigold: #F4A623;
+    --saffron: #E87817;
+    --coral: #E85D5D;
+    --warm-ivory: #FFF9F1;
+    --soft-gold: #D8A84E;
+    --charcoal: #241E1C;
+    --leaf-green: #4F7B5B;
+
+    --background: 36 100% 97%;
+    --foreground: 20 12% 13%;
+    --card: 0 0% 100%;
+    --card-foreground: 20 12% 13%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 12% 13%;
+    --primary: 296 53% 19%;
+    --primary-foreground: 36 100% 97%;
+    --secondary: 36 60% 92%;
+    --secondary-foreground: 296 53% 19%;
+    --muted: 36 40% 92%;
+    --muted-foreground: 20 8% 40%;
+    --accent: 38 90% 55%;
+    --accent-foreground: 20 12% 13%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 40 45% 82%;
+    --input: 40 45% 82%;
+    --ring: 296 53% 19%;
+    --radius: 0.75rem;
+}
+
+* {
+    border-color: hsl(var(--border));
+}
+
+body {
+    margin: 0;
+    background-color: var(--warm-ivory);
+    color: var(--charcoal);
+    font-family: 'Manrope', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, .font-serif {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+::selection {
+    background: var(--marigold);
+    color: var(--royal-plum);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--warm-ivory); }
+::-webkit-scrollbar-thumb { background: rgba(74, 23, 72, 0.3); border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: var(--royal-plum); }
+
+/* Hide scrollbar for horizontal scrollers */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Grain / noise overlay for plum sections */
+.grain-overlay::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.08;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.mask-line { overflow: hidden; display: block; }
+
+@media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+}
