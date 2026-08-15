@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Logo } from "@/components/Header";
 
 const COLS = [
-  { title: "Explore", links: ["Find Vendors", "Categories", "Event Types", "Plan My Event"] },
+  { title: "Explore", links: ["Find Vendors", "Categories", "Event Types", "Plan My Event", "My Bookings"] },
   { title: "Company", links: ["About Us", "How It Works", "Contact"] },
   { title: "For Vendors", links: ["Join as a Vendor", "Vendor Login"] },
   { title: "Support", links: ["Help Centre", "Privacy", "Terms"] },
@@ -29,7 +29,7 @@ export default function Footer() {
                 {c.links.map((l) => (
                   <li key={l}>
                     <Link
-                      to={l === "Find Vendors" ? "/vendors" : l === "Plan My Event" ? "/plan" : "/"}
+                      to={l === "Find Vendors" ? "/vendors" : l === "Plan My Event" ? "/plan" : l === "My Bookings" ? "/bookings" : "/"}
                       data-testid={`footer-link-${l.toLowerCase().replace(/[^a-z]+/g, "-")}`}
                       className="text-sm text-warm-ivory/70 hover:text-marigold transition-colors"
                     >

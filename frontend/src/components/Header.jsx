@@ -6,8 +6,9 @@ import { Menu, X, Home, Search, Heart, ClipboardList, User } from "lucide-react"
 const NAV = [
   { label: "Find Vendors", to: "/vendors" },
   { label: "Plan My Event", to: "/plan" },
+  { label: "My Bookings", to: "/bookings" },
   { label: "How It Works", to: "/#how-it-works" },
-  { label: "Ideas & Inspiration", to: "/#ideas" },
+  { label: "Ideas", to: "/#ideas" },
 ];
 
 export const Logo = ({ dark = false }) => (

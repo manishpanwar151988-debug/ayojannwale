@@ -27,15 +27,16 @@ Design: Indian • Festive • Premium • Warm • Modern • Trustworthy. Base
 - Emotional two-path homepage, category + occasion discovery, premium vendor cards, 3-step marketplace explainer, 5-step planning journey, trust pillars, ideas/inspiration, per-event accent theming.
 
 ## Implemented (2026-06-15)
-- Full homepage with all 12 sections, kinetic masked hero reveal, marquee, parallax accent, per-occasion color theming.
+- Full homepage with all 12 sections, kinetic masked hero reveal (paired with an auto-rotating 6-event slideshow), marquee, per-occasion color theming.
 - Find Vendors listing with category/occasion/city/search filters + clear.
-- Vendor profile with gallery, packages, working enquiry form → `/api/leads`.
+- Vendor profile with gallery, packages, availability Calendar, and booking form.
 - Plan My Event 3-step wizard (details → requirements → review) → `/api/events`, success screen.
-- MongoDB seed data. Verified: backend 11/11 pytest, frontend flows 100% (testing agent iteration_1).
+- **Vendor Booking**: package + available-date selection (blackout/booked dates disabled), booking creation with reference, status tracking timeline (Requested → Confirmed → In Progress → Completed), cancel (frees the date), My Bookings hub (localStorage + phone lookup). Backend: `/api/bookings` CRUD + `/api/vendors/{id}/availability`, seeded blackout dates + 3 demo bookings.
+- MongoDB seed data. Verified: backend curl + pytest; frontend flows 100% (testing agent iterations 1 & 2).
 
 ## Backlog
-- **P1**: User accounts (JWT or Google), saved shortlist persistence, vendor booking + availability + work-progress tracking, event dashboard (My Events / Bookings).
-- **P2**: Ideas/blog detail pages + CMS, vendor onboarding portal, reviews submission, real vendor statistics, payments.
+- **P1**: User accounts (JWT or Google), saved shortlist persistence, vendor-side dashboard to actually confirm/progress bookings, event dashboard (My Events).
+- **P2**: Ideas/blog detail pages + CMS, vendor onboarding portal, reviews submission, payments, calendar month-range availability API.
 
 ## Next Tasks
 - Add auth + persistent shortlist; build customer dashboard (My Event / Bookings / Work Progress).

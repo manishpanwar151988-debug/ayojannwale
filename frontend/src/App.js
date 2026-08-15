@@ -8,6 +8,8 @@ import Home from "@/pages/Home";
 import FindVendors from "@/pages/FindVendors";
 import VendorProfile from "@/pages/VendorProfile";
 import PlanEvent from "@/pages/PlanEvent";
+import BookingDetail from "@/pages/BookingDetail";
+import MyBookings from "@/pages/MyBookings";
 import ScrollToTop from "@/components/ScrollToTop";
 
 function App() {
@@ -22,6 +24,8 @@ function App() {
             <Route path="/vendors" element={<FindVendors />} />
             <Route path="/vendors/:id" element={<VendorProfile />} />
             <Route path="/plan" element={<PlanEvent />} />
+            <Route path="/bookings" element={<MyBookings />} />
+            <Route path="/bookings/:id" element={<BookingDetail />} />
           </Routes>
           <Footer />
         </SmoothScroll>
